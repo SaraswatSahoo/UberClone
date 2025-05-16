@@ -56,3 +56,23 @@ Use this endpoint to log out the user by clearing the cookie and blacklisting th
 - 200 OK: Returns a logout confirmation message.
 - 401 Unauthorized: No valid token provided.
 - 500 Internal Server Error: Unexpected server error.
+
+## Captains API
+
+### POST /captains/register
+Use this endpoint to register a new captain.
+
+#### Request Body
+- fullname.firstname (required, string)
+- fullname.lastname (optional, string)
+- email (required, valid email address)
+- password (required, string, min length: 6)
+- vehicle.color (required, string)
+- vehicle.plate (required, string)
+- vehicle.capacity (required, integer ≥ 1)
+- vehicle.vehicleType (required, must be one of "car", "bike", "auto")
+
+#### Response
+- 200 OK: Returns the newly created captain.
+- 400 Bad Request: Returns an array of validation errors.
+- 500 Internal Server Error: Occurs if there's a problem creating the captain.
